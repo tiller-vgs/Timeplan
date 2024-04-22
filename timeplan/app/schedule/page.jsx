@@ -5,6 +5,9 @@ export default function Schedule() {
           <h1 className="text-8xl">Timeplan</h1>
           
         </div>
+        <div class="border-solid border-2 border-indigo-800 p-4 rounded-md inline-block" style={{ height: "500px", width: "1500px" }}></div>
+
+
       </main>
     );
   }
