@@ -1,8 +1,9 @@
 export default function Schedule() {
   // Definer variabler for størrelse og mellomrom
   const boxWidth = "250px";
-  const boxHeight = "450px";
+  const boxHeight = "550px";
   const boxMargin = "20px";
+  const outerContainerWidth = `calc(5 * (${boxWidth} + ${boxMargin}) + 2 * ${boxMargin})`; // Bredden på den ytre beholderen
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br text-white from-slate-900 to-slate-800">
@@ -20,68 +21,23 @@ export default function Schedule() {
             gap: boxMargin, // Legg til gap mellom boksene
             backgroundColor: "white", // Bakgrunnsfarge hvit
             flexDirection: "row", // Sørger for at boksene ordnes horisontalt
-            width: "calc(4 * (" + boxWidth + " + " + boxMargin + "))", // Juster bredden basert på boksebredde og mellomrom
+            width: outerContainerWidth, // Juster bredden basert på boksebredde og mellomrom
           }}
         >
           {/* Første boks */}
-          <div
-            style={{
-              border: "2px solid indigo", // Mindre border indigo
-              padding: "4px",
-              borderRadius: "0.375rem", // Avrundede hjørner
-              height: boxHeight,
-              width: boxWidth,
-              backgroundColor: "white", // Bakgrunnsfarge hvit
-            }}
-          ></div>
-
-          {/* Andre boks */}
-          <div
-            style={{
-              border: "2px solid indigo", // Mindre border indigo
-              padding: "4px",
-              borderRadius: "0.375rem", // Avrundede hjørner
-              height: boxHeight,
-              width: boxWidth,
-              backgroundColor: "white", // Bakgrunnsfarge hvit
-            }}
-          ></div>
-
-          {/* Tredje boks */}
-          <div
-            style={{
-              border: "2px solid indigo", // Mindre border indigo
-              padding: "4px",
-              borderRadius: "0.375rem", // Avrundede hjørner
-              height: boxHeight,
-              width: boxWidth,
-              backgroundColor: "white", // Bakgrunnsfarge hvit
-            }}
-          ></div>
-
-          {/* Fjerde boks */}
-          <div
-            style={{
-              border: "2px solid indigo", // Mindre border indigo
-              padding: "4px",
-              borderRadius: "0.375rem", // Avrundede hjørner
-              height: boxHeight,
-              width: boxWidth,
-              backgroundColor: "white", // Bakgrunnsfarge hvit
-            }}
-          ></div>
-
-          {/* Femte boks */}
-          <div
-            style={{
-              border: "2px solid indigo", // Mindre border indigo
-              padding: "4px",
-              borderRadius: "0.375rem", // Avrundede hjørner
-              height: boxHeight,
-              width: boxWidth,
-              backgroundColor: "white", // Bakgrunnsfarge hvit
-            }}
-          ></div>
+          {[...Array(5)].map((_, index) => (
+            <div
+              key={index}
+              style={{
+                border: "2px solid indigo", // Mindre border indigo
+                padding: "4px",
+                borderRadius: "0.375rem", // Avrundede hjørner
+                height: boxHeight,
+                width: boxWidth,
+                backgroundColor: "white", // Bakgrunnsfarge hvit
+              }}
+            ></div>
+          ))}
         </div>
       </div>
     </main>
