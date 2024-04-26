@@ -1,6 +1,6 @@
 import Link from "next/link";
-import {Button} from "@/components/ui/button"
 
+import {Button} from "@/components/ui/button"
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br text-white from-slate-900 to-slate-800">
