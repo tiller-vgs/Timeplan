@@ -17,15 +17,17 @@ export default function Home() {
     <main>
       <div className="imageContainer">
         {showImage && (
+        <div className={globals.imageWrapper}>
           <Image
             src={img1}
-            width={500}
-            height={500}
+            width={300}
+            height={200}
             alt="Picture of the author"
           />
-        )}
       </div>
-      <Button color="primary" onClick={toggleImage}>
+      )}
+      </div>
+      <Button color="primary" onClick={toggleImage} className="buttonContainer">
         {showImage ? 'Hide Image' : 'Show Image'}
       </Button>
     </main>
