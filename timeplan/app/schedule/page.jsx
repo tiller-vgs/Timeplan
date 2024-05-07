@@ -1,21 +1,37 @@
+import React from "react";
 import Link from "next/link";
-import {Button} from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+
 export default function Schedule() {
   // Definer variabler for størrelse og mellomrom
   const boxWidth = "250px";
   const boxHeight = "550px";
   const boxMargin = "20px";
-  const outerContainerWidth = `calc(5 * (${boxWidth} + ${boxMargin}) + 2 * ${boxMargin})`; // Bredden på den ytre beholderen
+  const timeColumnWidth = "100px"; // Bredden på tidkolonnen
+  const outerContainerWidth = `calc(5 * (${boxWidth} + ${boxMargin}) + 2 * ${boxMargin} + ${timeColumnWidth})`; // Bredden på den ytre beholderen
+
+  // Funksjon for å generere klokkeslett
+  const generateTimeSlots = () => {
+    const timeSlots = [];
+    for (let i = 8; i <= 15; i++) {
+      timeSlots.push(
+        <div key={i} style={{ lineHeight: '50px', color: 'black' }}>
+          {i}:00
+        </div>
+      );
+    }
+    return timeSlots;
+  };
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br text-white from-slate-900 to-slate-800">
       <div className="flex flex-col items-center gap-y-10">
-        <h1 className="text-8xl">Timeplan</h1>
+        <h1 className="text-8xl text-white">Timeplan</h1>
 
         <Button asChild>
-            <Link href="/">Hjemmeside</Link>
+          <Link href="/">Hjemmeside</Link>
         </Button>
-        
+
         <div
           style={{
             border: "2px solid white", // Ytterste border hvit
@@ -30,7 +46,20 @@ export default function Schedule() {
             width: outerContainerWidth, // Juster bredden basert på boksebredde og mellomrom
           }}
         >
-          {/* Første boks */}
+          {/* Tidkolonne */}
+          <div
+            style={{
+              width: timeColumnWidth,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+            }}
+          >
+            {generateTimeSlots()}
+          </div>
+
+          {/* Bokser */}
           {[...Array(5)].map((_, index) => (
             <div
               key={index}
@@ -49,4 +78,3 @@ export default function Schedule() {
     </main>
   );
 }
-
