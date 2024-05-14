@@ -1,10 +1,12 @@
-import React from "react";
+"use client"
+import React, {useState} from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Class from "@/components/class";
 import Display from "@/components/display";
 
 export default function Schedule() {
+    const [activeButton, setActiveButton] = useState(null);
   // Definer variabler for størrelse og mellomrom
   const boxWidth = "250px";
   const boxHeight = "550px";
@@ -76,19 +78,16 @@ export default function Schedule() {
                 backgroundColor: "white", // Bakgrunnsfarge hvit
               }}
             >
-                {index === 0 && <Class />}
-                {index === 0 && <Class />}
-                {index === 0 && <Class />}
-                {index === 0 && <Class />}
+                {index === 0 && <Class id={index} activeButton={activeButton} setActiveButton={setActiveButton} />}
+                {index === 0 && <Class id={index + 1} activeButton={activeButton} setActiveButton={setActiveButton} />}
+                {index === 0 && <Class id={index + 2} activeButton={activeButton} setActiveButton={setActiveButton} />}
+                {index === 0 && <Class id={index + 3} activeButton={activeButton} setActiveButton={setActiveButton} />}
 
-                {index === 1 && <Class />}
+                {index === 1 && <Class id={index + 4} activeButton={activeButton} setActiveButton={setActiveButton} />}
 
-                {index === 2 && <Class />}
 
-                {index === 3 && <Class />}
 
-                {index === 4 && <Class />}
-                {index === 4 && <Class />}
+
 
             </div>
           ))}
