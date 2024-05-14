@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Class from "@/components/class";
+import Display from "@/components/display";
 
 export default function Schedule() {
   // Definer variabler for størrelse og mellomrom
@@ -25,8 +27,10 @@ export default function Schedule() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br text-white from-slate-900 to-slate-800">
-      <div className="flex flex-col items-center gap-y-10">
-        <h1 className="text-8xl text-white">Timeplan</h1>
+      <div className="flex flex-col items-center gap-y-10 pb-10">
+        <h1 className="text-5xl text-white">Timeplan</h1>
+
+
 
         <Button asChild>
           <Link href="/">Hjemmeside</Link>
@@ -71,7 +75,22 @@ export default function Schedule() {
                 width: boxWidth,
                 backgroundColor: "white", // Bakgrunnsfarge hvit
               }}
-            ></div>
+            >
+                {index === 0 && <Class />}
+                {index === 0 && <Class />}
+                {index === 0 && <Class />}
+                {index === 0 && <Class />}
+
+                {index === 1 && <Class />}
+
+                {index === 2 && <Class />}
+
+                {index === 3 && <Class />}
+
+                {index === 4 && <Class />}
+                {index === 4 && <Class />}
+
+            </div>
           ))}
         </div>
       </div>
