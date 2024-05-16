@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Class from "@/components/class";
-import Display from "@/components/display";
+
 
 export default function Schedule() {
     const [activeButton, setActiveButton] = useState(null);
@@ -26,7 +26,6 @@ export default function Schedule() {
     }
     return timeSlots;
   };
-
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br text-white from-slate-900 to-slate-800">
       <div className="flex flex-col items-center gap-y-10 pb-10">
@@ -78,12 +77,14 @@ export default function Schedule() {
                 backgroundColor: "white", // Bakgrunnsfarge hvit
               }}
             >
+
                 {index === 0 && <Class id={index} activeButton={activeButton} setActiveButton={setActiveButton} />}
                 {index === 0 && <Class id={index + 1} activeButton={activeButton} setActiveButton={setActiveButton} />}
                 {index === 0 && <Class id={index + 2} activeButton={activeButton} setActiveButton={setActiveButton} />}
                 {index === 0 && <Class id={index + 3} activeButton={activeButton} setActiveButton={setActiveButton} />}
 
                 {index === 1 && <Class id={index + 4} activeButton={activeButton} setActiveButton={setActiveButton} />}
+
 
 
 
