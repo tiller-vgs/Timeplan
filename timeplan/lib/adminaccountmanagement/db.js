@@ -4,7 +4,7 @@ const SQLpool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'password',
-    database: 'adminaccountmanagement'
+    database: 'timeplan'
   });
 
   module.exports = SQLpool;
@@ -12,7 +12,7 @@ const SQLpool = mysql.createPool({
   SQLpool.getConnection((err, connection) => {
     if (!err) {
       console.log('Connection Successful')
-      return;
+
     } else {
       console.error(err.message);
       connection.release();

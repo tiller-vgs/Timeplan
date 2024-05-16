@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Class from "@/components/class";
 
 export default function Schedule() {
   // Definer variabler for størrelse og mellomrom
@@ -22,6 +23,25 @@ export default function Schedule() {
     }
     return timeSlots;
   };
+
+  const pool = require("../../lib/adminaccountmanagement/db.js");
+
+    pool.getConnection((err, connection) => {
+        if (err) throw err; // not connected!
+
+        // Use the connection
+        connection.query('SELECT * FROM lectureschedule', (error, results, fields) => {
+            console.log(results);
+            // When done with the connection, release it.
+            connection.release();
+
+            // Handle error after the release.
+            if (error) throw error;
+
+            // Don't use the connection here, it has been returned to the pool.
+        });
+    });
+
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br text-white from-slate-900 to-slate-800">
@@ -71,7 +91,9 @@ export default function Schedule() {
                 width: boxWidth,
                 backgroundColor: "white", // Bakgrunnsfarge hvit
               }}
-            ></div>
+            >
+                {index === 0 && <Class />}
+            </div>
           ))}
         </div>
       </div>
