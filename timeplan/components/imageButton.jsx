@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
-import styles from "@/app/app/globals.module.css";
+import styles from "@/app/globals.module.css";
 
 function ImageButton({ id, activeButton, setActiveButton, imageSrc, buttonPosition, imagePosition, text }) {
     const[showImage, setShowImage] = useState(false);
