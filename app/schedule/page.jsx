@@ -1,15 +1,12 @@
-"use client"
-import React, {useState} from "react";
+import Class from "@/components/class";
+import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Class from "@/components/class";
-
 
 export default function Schedule() {
-    const [activeButton, setActiveButton] = useState(null);
   // Definer variabler for størrelse og mellomrom
   const boxWidth = "250px";
-  const boxHeight = "550px";
+  const boxHeight = "600px";
   const boxMargin = "20px";
   const timeColumnWidth = "100px"; // Bredden på tidkolonnen
   const outerContainerWidth = `calc(5 * (${boxWidth} + ${boxMargin}) + 2 * ${boxMargin} + ${timeColumnWidth})`; // Bredden på den ytre beholderen
@@ -27,31 +24,10 @@ export default function Schedule() {
     return timeSlots;
   };
 
-  const pool = require("../../lib/adminaccountmanagement/db.js");
-
-    pool.getConnection((err, connection) => {
-        if (err) throw err; // not connected!
-
-        // Use the connection
-        connection.query('SELECT * FROM lectureschedule', (error, results, fields) => {
-            console.log(results);
-            // When done with the connection, release it.
-            connection.release();
-
-            // Handle error after the release.
-            if (error) throw error;
-
-            // Don't use the connection here, it has been returned to the pool.
-        });
-    });
-
-
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br text-white from-slate-900 to-slate-800">
-      <div className="flex flex-col items-center gap-y-10 pb-10">
-        <h1 className="text-5xl text-white">Timeplan</h1>
-
-
+      <div className="flex flex-col items-center gap-y-10">
+        <h1 className="text-8xl text-white">Timeplan</h1>
 
         <Button asChild>
           <Link href="/">Hjemmeside</Link>
@@ -97,19 +73,19 @@ export default function Schedule() {
                 backgroundColor: "white", // Bakgrunnsfarge hvit
               }}
             >
+                {index === 0 && <Class height="200px" />}
+                {index === 0 && <Class height="150px" />}
+                {index === 0 && <Class height="150px"/>}
+                {index === 0 && <Class height="90px"/>}
 
-                {index === 0 && <Class id={index} activeButton={activeButton} setActiveButton={setActiveButton} />}
-                {index === 0 && <Class id={index + 1} activeButton={activeButton} setActiveButton={setActiveButton} />}
-                {index === 0 && <Class id={index + 2} activeButton={activeButton} setActiveButton={setActiveButton} />}
-                {index === 0 && <Class id={index + 3} activeButton={activeButton} setActiveButton={setActiveButton} />}
+                {index === 1 && <Class height="100px"/>}
 
-                {index === 1 && <Class id={index + 4} activeButton={activeButton} setActiveButton={setActiveButton} />}
+                {index === 2 && <Class height="150px"/>}
 
+                {index === 3 && <Class height="150px"/>}
 
-
-
-
-
+                {index === 4 && <Class height="150px"/>}
+                {index === 4 && <Class height="250px"/>}
             </div>
           ))}
         </div>
