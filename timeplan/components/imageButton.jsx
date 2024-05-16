@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import styles from "@/app/app/globals.module.css";
 
-function ImageButton({ id, activeButton, setActiveButton, imageSrc, buttonPosition, imagePosition }) {
+function ImageButton({ id, activeButton, setActiveButton, imageSrc, buttonPosition, imagePosition, text }) {
     const[showImage, setShowImage] = useState(false);
 
     const toggleImage = () => {
@@ -22,14 +22,14 @@ function ImageButton({ id, activeButton, setActiveButton, imageSrc, buttonPositi
                 {activeButton === id && (
                     <Image
                         src={imageSrc}
-                        width={250}
-                        height={150}
+                        width={100}
+                        height={200}
                         alt="Image"
                     />
                 )}
             </div>
             <Button className={styles.button} color="primary" onClick={toggleImage} style={buttonPosition}>
-                {activeButton === id ? '  Lukk bilde' : 'Se rom'}
+                {text}
             </Button>
         </div>
     );
